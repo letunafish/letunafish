@@ -2,6 +2,8 @@
 # MIT Username: 
 # 6.149 Project 1: Hangman
 # hangman.py
+#this is a comment
+
 
 # Import statements: DO NOT delete these! DO NOT write code above this!
 from random import randrange
