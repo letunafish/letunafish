@@ -6,6 +6,7 @@
 # Import statements: DO NOT delete these! DO NOT write code above this!
 from ast import Continue, Pass
 from random import randrange
+from re import T
 from string import *
 import os
 # -----------------------------------
@@ -37,7 +38,7 @@ def load_words():
 # actually load the dictionary of words and point to it with 
 # the words_dict variable so that it can be accessed from anywhere
 # in the program
-#words_dict = load_words()
+words_dict = load_words()
 
 
 # Run get_word() within your program to generate a random secret word
@@ -98,10 +99,10 @@ def play_hangman():
     # Actually play the hangman game
     # Put the mistakes_made variable here, since you'll only use it in this function
     mistakes_made = 0
-    secret_word = 'claptrap'
+    #secret_word = 'claptrap'
     letters_guessed = []
     # Update secret_word. Don't uncomment this line until you get to Step 8.
-    # secret_word  = get_word()
+    secret_word  = get_word()
 
     ####### YOUR CODE HERE ######
     #return None
@@ -121,6 +122,6 @@ def play_hangman():
             print("Congratulations")
             return
     print("\nWah Wah")
+    print("\n" + secret_word)
 
-    
 play_hangman()
