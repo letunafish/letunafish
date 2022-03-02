@@ -12,7 +12,8 @@ import os
 # Helper code
 # (you don't need to understand this helper code)
 # Import hangman words
-os.chdir("Downloads/")
+#print(os.getcwd())
+#os.chdir("github/letunafish")
 WORDLIST_FILENAME = "words.txt"
 
 def load_words():
@@ -36,7 +37,7 @@ def load_words():
 # actually load the dictionary of words and point to it with 
 # the words_dict variable so that it can be accessed from anywhere
 # in the program
-words_dict = load_words()
+#words_dict = load_words()
 
 
 # Run get_word() within your program to generate a random secret word
@@ -104,7 +105,7 @@ def play_hangman():
 
     ####### YOUR CODE HERE ######
     #return None
-    while True:
+    while mistakes_made < MAX_GUESSES:
         print(MAX_GUESSES - mistakes_made)
         print_guessed(secret_word, letters_guessed)
 
@@ -113,7 +114,13 @@ def play_hangman():
             mistakes_made += 1
         else:
             Pass
-
+    
         letters_guessed.append(guess)
+
+        if is_word_guessed(secret_word,letters_guessed):
+            print("Congratulations")
+            return
+    print("\nWah Wah")
+
     
 play_hangman()
