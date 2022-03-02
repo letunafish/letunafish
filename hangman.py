@@ -2,10 +2,9 @@
 # MIT Username: 
 # 6.149 Project 1: Hangman
 # hangman.py
-#this is a comment
-
 
 # Import statements: DO NOT delete these! DO NOT write code above this!
+from ast import Continue, Pass
 from random import randrange
 from string import *
 import os
@@ -104,4 +103,17 @@ def play_hangman():
     # secret_word  = get_word()
 
     ####### YOUR CODE HERE ######
-    return None
+    #return None
+    while True:
+        print(MAX_GUESSES - mistakes_made)
+        print_guessed(secret_word, letters_guessed)
+
+        guess = input().lower()
+        if guess not in secret_word:
+            mistakes_made += 1
+        else:
+            Pass
+
+        letters_guessed.append(guess)
+    
+play_hangman()
