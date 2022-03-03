@@ -8,7 +8,7 @@ from ast import Continue, Pass
 from random import randrange
 from re import T
 from string import *
-import os
+#import os
 # -----------------------------------
 # Helper code
 # (you don't need to understand this helper code)
@@ -108,6 +108,7 @@ def play_hangman():
     #return None
     while mistakes_made < MAX_GUESSES:
         print(MAX_GUESSES - mistakes_made)
+        print(letters_guessed)
         print_guessed(secret_word, letters_guessed)
 
         guess = input().lower()
