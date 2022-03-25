@@ -1,6 +1,7 @@
 #Objects - Deck, Sidedeck, Card, Player, Game
 
 import random
+from xml.etree.ElementTree import ProcessingInstruction
 
 
 class deck:
@@ -68,10 +69,67 @@ class player:
     
     def player_sd(self):
         self.sd.side_print()
+
+    def current_points(self):
+        return self.points
+
+    def check_stand(self):
+        return self.stand 
+    
+class game:
+    def __init__(self, players):
+        self.gameover = False
+        self.players = players
+        self.turn = 0
+
+    def check_gameover(self):
+        counter = 0
+       #print(len(self.players))
+        total_players = len(self.players)
+        for player in self.players:
+            #print(player.current_points())
+            if player.current_points() > 20:
+                counter = counter + 1
+            elif player.check_stand():
+                counter = counter + 1 
+            #print(counter)
+            
+        if counter == total_players:
+            self.gameover = True
     
 
 
+#skip logic for game 42
+#logic for who won game
+#turns draw cards/use side cards/stand or not 51
 
+
+#Class Set
+#prompt to create player objects and names
+#increment player total / skip or game class
+#Pure Pazaak + winner 
+#134 set class wins / check winner
+
+
+
+
+player_1 = player("Chungus")
+player_2 = player("Dungus")
+player_3 = player("Cowabungus")
+
+playaz = [player_1, player_2, player_3]
+
+Round_1 = game(playaz)
+print(Round_1.gameover)
+Round_1.check_gameover()
+print(Round_1.gameover)
+
+player_1.do_stand()
+player_2.do_stand()
+#player_3.do_stand()
+
+Round_1.check_gameover()
+print(Round_1.gameover)
 
 
 
@@ -85,11 +143,11 @@ class player:
     
 
 
-play_deck = deck()
-player_1 = player("dominos")
-print(str(play_deck.draw()))
-player_1.choose_sd()
-player_1.do_stand()
+#play_deck = deck()
+#player_1 = player("dominos")
+#print(str(play_deck.draw()))
+#player_1.choose_sd()
+#player_1.do_stand()
 
 
 #play_deck.deck_print()
